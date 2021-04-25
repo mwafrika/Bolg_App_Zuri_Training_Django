@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/base.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="" method="POST">
+        <h3>Registration</h3>
+
+        {% csrf_token %}
+
+        <div class="divider">
+          <div class="div-container">
+            <div class="field">{{ form.username.label }}</div>
+            <div class="field">{{form.email.label }}</div>
+            <div class="field">{{form.password1.label }}</div>
+            <div class="field">{{ form.password2.label }}</div>
+          </div>
+
+          <div class="div-container">
+            <div class="field">{{form.username}}</div>
+            <div class="field">{{form.email}}</div>
+            <div class="field">{{form.password1}}</div>
+            <div class="field">{{form.password2}}</div>
+            <div class="field">
+              <p>
+                Do you have an account ? <a href="{% url 'login' %}">Login</a>
+              </p>
+            </div>
+            <div>
+              <input type="submit" name="Create User" value="Signup" />
+            </div>
+            {% for message in messages %}
+            <p id="messages">{{ message }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

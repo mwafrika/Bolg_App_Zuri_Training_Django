@@ -1,0 +1,62 @@
+header h1 a {
+  color: red;
+  text-decoration: none;
+}
+
+header {
+  border-bottom: 1px solid #999;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.nav-left {
+  margin-left: auto;
+}
+.nav-right {
+  padding-top: 2rem;
+  display: flex;
+}
+.post-entry {
+  margin-bottom: 2rem;
+}
+.post-entry h2 {
+  margin: 0.5rem 0;
+}
+
+.post-entry h2 a,
+.post-entry h2 a:visited {
+  color: blue;
+  text-decoration: none;
+}
+.post-entry p {
+  margin: 0;
+  font-weight: 400;
+}
+.post-entry h2 a:hover {
+  color: red;
+}
+
+.div-container {
+  margin-right: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  /* background-color: red; */
+  align-items: center;
+  align-content: center;
+  /* flex-direction: column; */
+}
+.divider {
+  display: flex;
+  flex-direction: row;
+}
+.field {
+  margin-bottom: 15px;
+}
+
+#messages {
+  background-color: #999;
+  color: aliceblue;
+}
