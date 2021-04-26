@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-y6ncmp0^u9dx-=7@%x^%i=dy+aw7)q_5vex^pfxmkhsiihijl#
 DEBUG = False
 # Added for the bootrstrap
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-ALLOWED_HOSTS = ['blogpost-ingressive4good.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['127.0.0.1', '.blogpost-ingressive4good.herokuapp.com']
 
 
 # Application definition
