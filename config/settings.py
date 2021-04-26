@@ -56,6 +56,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+# Added
+DJANGO_SETTINGS_MODULE = 'config.settings.production'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
