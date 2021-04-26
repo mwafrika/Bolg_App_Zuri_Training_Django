@@ -1,1 +1,1 @@
-web:gunicorn --pythonpath blogpost blogpost.wsgi 
+web:gunicorn blogProject.wsgi --log-file -
