@@ -18,8 +18,8 @@ The deployed application to heroku is:
 
 https://blogpost-production.herokuapp.com/
 
-- ##Username = admin
-- ##The password = josmwafrika789
+- ## Username = admin
+- ## The password = josmwafrika789
 
 * In case the user forget his password he can still reset it and set a new password if he is registered in the system and the email is sent in the inbox to reset the password.
 * After the user is logged in to the system he/she should see the home page with some post.
