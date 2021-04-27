@@ -10,9 +10,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .forms import RegisterForm
+from .forms import RegisterForm, CommentForm
 # For creating user
-from .models import Post
+from .models import Post, CommentModel
 from django.urls import reverse_lazy
 # Create your views here.
 
@@ -27,13 +27,77 @@ class BlogListView(ListView):
     template_name = 'home.html'
 
 
-class BlogDetailView(DetailView):
-    @method_decorator(login_required(login_url='login'))
-    def dispatch(self, *args, **kwargs):
+def blog(request):
+    context = {}
+    return render(request, 'home.html', context)
 
+
+class BlogDetailView(DetailView):
+
+    def dispatch(self, *args, **kwargs):
         return super(BlogDetailView, self).dispatch(*args, **kwargs)
     model = Post
     template_name = 'details.html'
+    slug_field = 'slug'
+    form = CommentForm
+
+    # @login_required(login_url='login')
+    def post(self, request, *args, **kwargs):
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            post = self.get_object()
+            form.instance.user = request.user
+            form.instance.post = post
+            form.save()
+            return redirect(reverse("post", kwargs={
+                'slug': post.slug
+            }))
+
+    def get_context_data(self, **kwargs):
+        post_comments = CommentModel.objects.all().filter(blog=self.object.id)
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'form': self.form,
+            'post_comments': post_comments
+        })
+        # context['form'] = self.form
+        return context
+        # Added
+
+
+class CreateComment(CreateView):
+    model = CommentModel
+    template_name = 'details.html'
+    fields = ['blog', 'comment']
+
+
+class CommentListView(ListView):
+    model = CommentModel
+    template_name = 'details.html'
+    # def CommentView(request, _id):
+    #     try:
+    #         data = BlogModel.objects.get(id=_id)
+    #         comments = CommentModel.objects.filter(blog=data)
+    #     except BlogModel.DoesNotExist:
+    #         raise Http404('Data does not exist')
+    #     if request.method == 'POST':
+    #         form = CommentForm(request.POST)
+    #         if form.is_valid():
+    #             Comment = CommentModel(
+    #                 comment=form.cleaned_data['comment'],
+    #                 blog=data)
+    #             Comment.save()
+    #             return redirect(f'post/{_id}')
+    #     else:
+    #         form = CommentForm()
+
+    #     context = {
+    #         'data': data,
+    #         'form': form,
+    #         'comments': comments,
+    #     }
+    #     return render(request, 'details.html', context)
+   # Added
 
 
 class BlogCreateView(CreateView):

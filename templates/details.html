@@ -6,4 +6,17 @@
 </div>
 <a href="{% url 'post_edit' post.pk %}"> Edit Post</a>
 <a href="{% url 'delete_post' post.pk %}">Delete Post</a>
+<form method="post" action="{% url 'details' post.pk %}">
+  <h2>Comment Here</h2>
+  {% csrf_token %} {{ form.as_p }}
+
+  <input type="submit" value="Comment" />
+</form>
+{% for comment in post_comments %}
+<div class="post_entry">
+  <h2>{{ comment.user }}</h2>
+  <h2>{{ comment.date }}</h2>
+  <h2>{{ comment.comment }}</h2>
+</div>
+{% endfor %} 
 {% endblock %}
