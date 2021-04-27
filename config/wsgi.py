@@ -13,9 +13,9 @@ from django.core.wsgi import get_wsgi_application
 
 # added
 from dj_static import Cling
-from whitenoise.django import DjangoWhiteNoise
+# from whitenoise.django import DjangoWhiteNoise
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.production')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
+# application = DjangoWhiteNoise(application)
