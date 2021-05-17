@@ -1,4 +1,4 @@
-# Bolg_App_Zuri_Training_Django
+# Blog app using Python/Django (Zuri training)
 
 This is a Blog Application built in Django . The following are the tasks to be done :
 
