@@ -26,6 +26,9 @@ https://blogpost-production.herokuapp.com/
 
 ## Login as a user :
 ### first create an account then use the credentials to be logged in.
+### To test with an existing user use : 
+### Username : jean
+### Password : jean0787564203
 
 * In case the user forget his password he can still reset it and set a new password if he is registered in the system and the email is sent in the inbox to reset the password.
 * After the user is logged in to the system he/she should see the home page with some post.
