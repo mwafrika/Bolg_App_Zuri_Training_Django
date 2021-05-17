@@ -26,7 +26,7 @@ https://blogpost-production.herokuapp.com/
 
 ## Login as a user :
 ### first create an account then use the credentials to be logged in.
-### To test with an existing user use : 
+### To test with an existing user you can use : 
 ### Username : jean
 ### Password : jean0787564203
 
